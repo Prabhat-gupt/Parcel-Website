@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="booking_page_bg">
+        <div class="form-container">
+            <div class="login_main">
+                <h2>Booking Service</h2>
+                <form id="registerForm">
+                    <div class="register_full">
+                        <div class="register_first_half">
+                            <label for="customer-name">Sender Name:</label>
+                            <input type="text" id="customer-name" name="customername" placeholder="Enter your name">
+
+                            <label for="mobile-number">Sender Mobile Number:</label>
+                            <div class="mobile-container">
+                                <select id="country-code" name="country-code">
+                                    <option value="+1">+1</option>
+                                    <option value="+91" selected>+91</option>
+                                    <option value="+44">+44</option>
+                                    <option value="+61">+61</option>
+                                    <option value="+81">+81</option>
+                                    <option value="+49">+49</option>
+                                    <option value="+33">+33</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                                <input type="number" id="mobile-number" name="mobilenumber"
+                                    placeholder="Enter mobile number">
+                            </div>
+
+                            <label for="address">Sender Address:</label>
+                            <textarea id="address" name="address" rows="4" placeholder="Enter complete address"
+                                style="margin: 0px;"></textarea>
+
+                            <!-- <label for="zip-code">ZIP Code:</label> -->
+                            <div class="zip-parcel" style="display: flex; gap: 5px;">
+                                <input type="text" id="zip-code" name="zipcode" placeholder="Enter ZIP code"
+                                    style="width: 110px;">
+                                <input type="text" id="parcel-code" name="parcelcode" placeholder="Enter Parcel code"
+                                    style="width: 110px;">
+                            </div>
+                            <label for="mobile-number">Shipping Options:</label>
+                            <div class="mobile-container">
+                                <select id="shipping-option" name="country-code">
+                                    <option value="Standard">Standard</option>
+                                    <option value="Express" selected>Express</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                                <!-- <input type="number" id="mobile-number" name="mobilenumber" placeholder="Enter mobile number" > -->
+                            </div>
+                            <label for="register-email">Pickup time:</label>
+                            <input type="time" id="register-email" name="email" placeholder="Enter email">
+                            <label for="register-weight">Size</label>
+                            <div class="mobile-container">
+                                <select id="parcel-size" name="parcel-size">
+                                    <option value="default">Select Size</option>
+                                    <option value="Small">Small</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Large">Large</option>
+                                    <option value="ExtraLarge">Extra Large</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <!-- <label for="parcel-code">Parcel Code:</label> -->
+                        <div class="register_second_half">
+                            <label for="register-name">Receiver Name:</label>
+                            <input type="text" id="register-name" name="register-name" placeholder="Enter Receiver Name">
+
+                            <label for="mobile-number">Receiver Mobile Number:</label>
+                            <div class="mobile-container">
+                                <select id="country-code" name="country-code">
+                                    <option value="+1">+1</option>
+                                    <option value="+91" selected>+91</option>
+                                    <option value="+44">+44</option>
+                                    <option value="+61">+61</option>
+                                    <option value="+81">+81</option>
+                                    <option value="+49">+49</option>
+                                    <option value="+33">+33</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                                <input type="number" id="receiverMobile" name="mobile-number"
+                                    placeholder="Enter mobile number">
+                            </div>
+
+                            <label for="address">Receiver Address:</label>
+                            <textarea id="receiverAddress" name="address" rows="4" placeholder="Enter complete address"
+                                style="margin: 0px;"></textarea>
+
+                            <!-- <label for="zip-code">ZIP Code:</label> -->
+                            <div class="zip-parcel" style="display: flex; gap: 5px;">
+                                <input type="text" id="zip-code" name="zipcode" placeholder="Enter ZIP code"
+                                    style="width: 110px;">
+                                <input type="text" id="parcel-code" name="parcelcode" placeholder="Enter Parcel code"
+                                    style="width: 110px;">
+                            </div>
+
+                            <label for="mobile-number">Packaging Preferences:</label>
+                            <div class="mobile-container">
+                                <select id="PackagingPreferences" name="Packaging Preferences">
+                                    <option value="StandardPackaging" selected>Standard Packaging</option>
+                                    <option value="CustomPackaging">Custom Packaging</option>
+                                    <option value="Eco-friendlyPackaging">Eco-friendly Packaging</option>
+                                    <option value="FragileItemhandling">Fragile Item handling</option>
+                                    <!-- Add more country codes as needed -->
+                                </select>
+                                <!-- <input type="number" id="mobile-number" name="mobilenumber" placeholder="Enter mobile number"  > -->
+                            </div>
+                            <label for="register-dropOff">Drop off time:</label>
+                            <input type="time" id="registerDropOff" name="register-dropOff" placeholder="Enter email">
+
+                            <label for="register-weight">Weight</label>
+                            <input type="number" id="registerWeight" name="register-weight" placeholder="Enter weight of parcel">
+                        </div>
+
+                    </div>
+                    <!-- <div class="register_checkbox"> -->
+                    <!-- </div> -->
+                    <button id="booking-button" type="submit">Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+       document.getElementById("booking-button").addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent form submission
+    console.log("Booking button clicked");
+
+    // Get values from the form
+    const senderName = document.getElementById("customer-name").value.trim();
+    const senderMobile = `${document.getElementById("country-code").value} ${document.getElementById("mobile-number").value.trim()}`;
+    const senderAddress = document.getElementById("address").value.trim();
+
+    const receiverName = document.getElementById("register-name").value.trim();
+    const receiverMobile = document.getElementById("receiverMobile").value.trim();
+    const receiverAddress = document.getElementById("receiverAddress").value.trim();
+
+    const parcelSize = document.getElementById("parcel-size").value;
+    const shippingOption = document.getElementById("shipping-option").value;
+    const packagingPreference = document.getElementById("PackagingPreferences").value;
+    const weight = document.getElementById("registerWeight").value;
+
+    // Define base prices for calculations
+    const sizePrices = {
+        Small: 50,
+        Medium: 100,
+        Large: 150,
+        ExtraLarge: 200,
+    };
+
+    const shippingPrices = {
+        Standard: 30,
+        Express: 70,
+    };
+
+    const packagingPrices = {
+        StandardPackaging: 20,
+        CustomPackaging: 50,
+        EcoFriendlyPackaging: 40,
+        FragileItemHandling: 60,
+    };
+
+    // Calculate total price
+    const sizePrice = sizePrices[parcelSize] || 0;
+    const shippingPrice = shippingPrices[shippingOption] || 0;
+    const packagingPrice = packagingPrices[packagingPreference] || 0;
+    const weightPrice = weight * 2;
+
+    const totalPrice = sizePrice + shippingPrice + packagingPrice + weightPrice;
+
+    // Save all data to localStorage
+    localStorage.setItem("senderName", senderName);
+    localStorage.setItem("senderMobile", senderMobile);
+    localStorage.setItem("senderAddress", senderAddress);
+
+    localStorage.setItem("receiverName", receiverName);
+    localStorage.setItem("receiverMobile", receiverMobile);
+    localStorage.setItem("receiverAddress", receiverAddress);
+
+    localStorage.setItem("parcelSize", parcelSize);
+    localStorage.setItem("shippingOption", shippingOption);
+    localStorage.setItem("packagingPreference", packagingPreference);
+    localStorage.setItem("parcelWeight", weight);
+    localStorage.setItem("parcelPrice", totalPrice);
+
+    console.log("Data saved successfully in localStorage!");
+
+    // Redirect to the payment page
+    window.location.href = "payment.html"; // Ensure the path is correct
+});
+
+    const senderName = localStorage.getItem('customerName');
+    const mobileNumber = localStorage.getItem('mobileNumber');
+    const senderAddress = localStorage.getItem('address');
+    const zipCode = localStorage.getItem('zipCode');
+    const parcelCode = localStorage.getItem('parcelCode');
+
+    // const customerNmae = document.getElementById('customer-name');
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('customer-name').value = senderName;
+        document.getElementById('mobile-number').value = mobileNumber;
+        document.getElementById('address').value = senderAddress;
+        document.getElementById('zip-code').value = zipCode;
+        document.getElementById('parcel-code').value = parcelCode;
+    });
+
+    </script>
+
+</body>
+
+</html>

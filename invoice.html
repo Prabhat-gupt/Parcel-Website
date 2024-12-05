@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .invoice_main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .invoice_mainDetail {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns: keys and values */
+            gap: 1rem; /* Spacing between rows and columns */
+            max-width: 600px;
+            width: 100%;
+        }
+        .invoice_detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            background: #f9f9f9; /* Light background for clarity */
+            border: 1px solid #ddd; /* Subtle border */
+            border-radius: 4px; /* Rounded corners */
+        }
+        .invoice_detail div {
+            flex: 1;
+            text-align: left;
+            font-size: 1rem;
+        }
+        .invoice_detail .sender_key, .invoice_detail .MobileNumber_key,
+        .invoice_detail .ReceiverName_key, .invoice_detail .ShippingOption_key,
+        .invoice_detail .PackagingPreference_key, .invoice_detail .Size_key,
+        .invoice_detail .Weight_key, .invoice_detail .PaymentMethod_key,
+        .invoice_detail .TotalAmount_key {
+            font-weight: bold; /* Highlight keys */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="invoice_main">
+        <h1>Invoice Page</h1>
+        <div class="invoice_mainDetail">
+            <div class="invoice_detail">
+                <div class="sender_key">
+                    SenderName: 
+                </div>
+                <div class="sender_value" id="sender_value"> 
+                </div>
+            </div>
+            <div class="invoice_detail">
+                <div class="MobileNumber_key">
+                    MobileNumber:
+                </div>
+                <div class="MobileNumber_value" id="MobileNumber_value"> 
+                </div>
+            </div>
+            
+            <div class="invoice_detail">
+                <div class="Address_key">
+                    Address:
+                </div>
+                <div class="Address_value" id="Address_value"> 
+                </div>
+            </div>
+            
+            <div class="invoice_detail">
+                <div class="ReceiverName_key">
+                    ReceiverName:
+                </div>
+                <div class="ReceiverName_value" id="ReceiverName_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="ReceiverMN_key">
+                    Receiver MobileNumber:
+                </div>
+                <div class="ReceiverMN_value" id="ReceiverMN_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="ReceiverAddress_key">
+                    ReceiverAddress:
+                </div>
+                <div class="ReceiverAddress_value" id="ReceiverAddress_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="ShippingOption_key">
+                    Shipping Option:
+                </div>
+                <div class="ShippingOption_value" id="ShippingOption_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="PackagingPreference_key">
+                    Packaging Preference:
+                </div>
+                <div class="PackagingPreference_value" id="PackagingPreference_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="Size_key">
+                    Size:
+                </div>
+                <div class="Size_value" id="Size_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="Weight_key">
+                    Weight:
+                </div>
+                <div class="Weight_value" id="Weight_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="PaymentMethod_key">
+                    Payment Method:
+                </div>
+                <div class="PaymentMethod_value" id="PaymentMethod_value"> 
+                </div>
+            </div>
+            
+    
+            <div class="invoice_detail">
+                <div class="TotalAmount_key">
+                    Total Amount:
+                </div>
+                <div class="TotalAmount_value" id="TotalAmount_value"> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        document.getElementById('sender_value').textContent = localStorage.getItem('customerName');
+        document.getElementById('MobileNumber_value').textContent = localStorage.getItem('mobileNumber');
+        document.getElementById('Address_value').textContent = localStorage.getItem('address');
+
+        document.getElementById('ReceiverName_value').textContent = localStorage.getItem('receiverName');
+        document.getElementById('ReceiverMN_value').textContent = localStorage.getItem('receiverMobile');
+        document.getElementById('ReceiverAddress_value').textContent = localStorage.getItem('receiverAddress');
+
+        document.getElementById('ShippingOption_value').textContent = localStorage.getItem('shippingOption');
+        document.getElementById('PackagingPreference_value').textContent = localStorage.getItem('packagingPreference');
+        document.getElementById('Size_value').textContent = localStorage.getItem('parcelSize');
+        document.getElementById('Weight_value').textContent = localStorage.getItem('parcelWeight');
+
+        document.getElementById('PaymentMethod_value').textContent = localStorage.getItem('paymentMethod');
+        document.getElementById('TotalAmount_value').textContent = localStorage.getItem("parcelPrice");
+
+
+
+    </script>
+
+
+</body>
+</html>

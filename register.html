@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="login_main">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="register_full">
+                    <div class="register_first_half">
+                        <label for="customer-name">Customer Name:</label>
+                    <input type="text" id="customer-name" name="customername" placeholder="Enter your name" required>
+        
+                    <label for="mobile-number">Mobile Number:</label>
+                    <div class="mobile-container">
+                        <select id="country-code" name="country-code" required>
+                            <option value="+1">+1</option>
+                            <option value="+91" selected>+91</option>
+                            <option value="+44">+44</option>
+                            <option value="+61">+61</option>
+                            <option value="+81">+81</option>
+                            <option value="+49">+49</option>
+                            <option value="+33">+33</option>
+                            <!-- Add more country codes as needed -->
+                        </select>
+                        <input type="number" id="mobile-number" name="mobilenumber" placeholder="Enter mobile number" required>
+                    </div>
+        
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" placeholder="Enter complete address" required style="margin: 0px;"></textarea>
+        
+                    <!-- <label for="zip-code">ZIP Code:</label> -->
+                    <div class="zip-parcel" style="display: flex; gap: 5px;">
+                        <input type="text" id="zip-code" name="zipcode" placeholder="Enter ZIP code" required style="width: 110px;">
+                        <input type="text" id="parcel-code" name="parcelcode" placeholder="Enter Parcel code" required style="width: 110px;">
+                    </div>
+                    </div>
+                    
+        
+                    <!-- <label for="parcel-code">Parcel Code:</label> -->
+                    <div class="register_second_half">
+                        <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" name="email" placeholder="Enter email" required>
+        
+                    <label for="user-id">Username:</label>
+                    <input type="text" id="user-name" name="username" placeholder="Enter username" required>
+        
+                    <label for="register-password">Password:</label>
+                    <input type="password" id="register-password" name="password" placeholder="Enter password" required>
+        
+                    <label for="register-confirm-password">Confirm Password:</label>
+                    <input type="password" id="register-confirm-password" name="confirmpassword" placeholder="Confirm password" required>
+                    </div>
+                </div>
+                
+
+                
+                <div class="register_checkbox">
+                    <div class="checkbox-container">
+                        <input type="radio" id="terms-checkbox-admin" name="terms" style="width: 20px; height: 15px;">
+                        <label for="terms-checkbox">I am Admin</label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <input type="radio" id="terms-checkbox-user" name="terms" style="width: 20px; height: 15px;">
+                        <label for="terms-checkbox">I am User</label>
+                    </div>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+            <p style="text-align: center;">Already have an account? <a href="login.html" style="color: #1e0848;">Login here</a></p>
+    </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+     <script>
+        document.getElementById("registerForm").addEventListener('submit', function (e) {
+            e.preventDefault();
+            console.log("Register form submit triggered");
+
+            const password = document.getElementById('register-password').value.trim();
+            const confirmPassword = document.getElementById('register-confirm-password').value.trim();
+            const mobileNumber = document.getElementById('mobile-number').value.trim();
+            const username = document.getElementById('user-name').value.trim();
+            const customername = document.getElementById('customer-name').value.trim();
+            const emailAddress = document.getElementById('register-email').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const zipCode = document.getElementById('zip-code').value.trim();
+            const parcelCode = document.getElementById('parcel-code').value.trim();
+
+            const isAdminChecked = document.getElementById('terms-checkbox-admin').checked;
+            const isUserChecked = document.getElementById('terms-checkbox-user').checked;
+
+            console.log("Checkbox", isAdminChecked, isUserChecked)
+
+            console.log("Password:", password); 
+            console.log("Confirm Password:", confirmPassword); 
+
+            if (mobileNumber.length != 10) {
+                alert('Invalid mobile number, Please enter correct mobile number');
+                return;
+            }
+
+            const passwordRegex = /^(?=.*[A-Z]).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert('Password must be at least 8 characters long and contain at least one uppercase letter.');
+                return;
+            }
+            
+            if (password != confirmPassword) {
+                alert('Password and ConfirmPassword do not match. Please try again.');
+                return;
+            }
+
+            if (!isAdminChecked && !isUserChecked) {
+                alert('Please select either "I am Admin" or "I am User" before proceeding.');
+                return;
+            }
+
+            const randomUserId = username + Math.floor(100000 + Math.random() * 900000);
+
+            // Store the user ID in local storage
+            localStorage.setItem('userId', randomUserId);
+            localStorage.setItem('userName', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('customerName', customername);
+            localStorage.setItem('emailAddress', emailAddress);
+            localStorage.setItem('mobileNumber', mobileNumber);
+            localStorage.setItem('address', address);
+            localStorage.setItem('zipCode', zipCode);
+            localStorage.setItem('parcelCode', parcelCode);
+
+
+            // Log the generated user ID for debugging
+            console.log('Generated User ID:', randomUserId);
+
+            alert('Registration successful! Redirecting...');
+            document.getElementById('registerForm').reset();
+            history.replaceState(null, null, 'success.html');
+            window.location.href = 'success.html'; 
+        });
+     </script>
+</body>
+</html>

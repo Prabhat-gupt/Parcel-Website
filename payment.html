@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Payment</h1>
+    </header>
+    <main>
+        <form id="paymentForm">
+            <div class="mobile-container">
+                <select id="payment-method" name="payment-method">
+                    <option value="default" selected>Select payment method</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="cod">Cash on Delivery</option>
+                </select>
+            </div>
+
+            <div class="card-details" id="card-details">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" required>
+                    
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="month" id="expiry-date" name="expiry-date" required>
+                    
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" name="cvv" required>
+            </div>
+
+            <div class="totalAmount" id="totalAmount" style="padding-bottom: 1rem;">
+            </div>
+
+            <button id="payment-submit" type="submit">Pay</button>
+        </form>
+    </main>
+
+    <script>
+        const paymentMethodSelect = document.getElementById('payment-method');
+        const cardDetails = document.getElementById('card-details');
+        const totalAmount = document.getElementById('totalAmount');
+
+        paymentMethodSelect.addEventListener('change', () => {
+            if (paymentMethodSelect.value === 'cod') {
+                cardDetails.style.display = 'none';
+            } else {
+                cardDetails.style.display = 'block';
+            }
+            const paymentMethod = localStorage.setItem('paymentMethod', paymentMethodSelect.value);
+        });
+
+        const parcelPrice = localStorage.getItem("parcelPrice");
+        
+        // Display the price in the payment form
+        document.addEventListener("DOMContentLoaded", () => {
+            totalAmount.textContent = `Total Price:  ₹${parcelPrice || 0}`;
+        });
+
+        document.getElementById("payment-submit").addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = "invoice.html";
+        })
+
+    </script>
+</body>
+</html>

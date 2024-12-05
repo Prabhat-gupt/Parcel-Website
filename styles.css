@@ -1,0 +1,303 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* login Page  */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('https://img.pikbest.com/wp/202349/transportation-cargo-3d-render-concept-of-truck-providing-product-delivery-service-with-location-sign-and-courier_9786467.jpg!sw800');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.booking_page_bg{
+    min-height: 100vh;
+    background-image: url('https://img.freepik.com/free-photo/supply-chain-representation-with-van-top-view_23-2149853168.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.booking_page_bg1   {
+    min-height: 100vh;
+    background-image: url('https://shipsigma.com/hubfs/What%20is%20small%20parcel%20delivery.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.login_main{
+    padding: 21px;
+    box-shadow: inset 0 0em 31em rgb(255 255 255 / 81%), 0 0 0 0px white, 0.5em 0.6em 2em rgb(69 50 50 / 70%);
+    border-radius: 8px;
+    color: white;
+}
+
+
+/* register page  */
+
+.register_full{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+header {
+    padding: 1rem;
+    text-align: center;
+}
+
+.register_checkbox{
+    display: flex;
+    gap: 45px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: fit-content;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: inset 0 0em 31em rgb(255 255 255 / 81%), 0 0 0 0px white, 0.5em 0.6em 2em rgb(69 50 50 / 70%);
+}
+
+.booking_form{
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea, button {
+    width: 245px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #1c0745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the mobile number container */
+.mobile-container {
+    width: 239px;
+    display: flex;
+    gap: 0px; /* Space between dropdown and input */
+    align-items: center; /* Align dropdown and input vertically */
+    gap: 5px;
+}
+
+.mobile-container select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+    margin-bottom: 1rem;
+}
+
+.mobile-container input {
+    flex: 1; /* Allow the input to take the remaining space */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    /* align-items: center;
+    margin: 15px 0;
+    font-size: 14px; */
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+/* Home Page CSS Start*/
+
+.header_profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px;
+}
+.header_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding-left: 7rem;
+}
+.profile_circle {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url('https://img.freepik.com/free-vector/young-man-orange-hoodie_1308-175788.jpg?t=st=1733335177~exp=1733338777~hmac=1b84f86d26ec72ecefe046d3f0aeadea1d187311900202f08984a9207c355017&w=360');
+    background-size: cover;
+}
+.profile_photo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px; 
+}
+nav {
+    margin-top: 10px;
+}
+nav a {
+    margin: 0 10px;
+    text-decoration: none
+}
+
+/* Home Page CSS End*/
+
+
+/* Success Page CSS Start */
+
+body {
+    margin: 0;
+}
+
+.success_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-image: url('https://5.imimg.com/data5/SELLER/Default/2023/7/322945078/DD/PK/PT/192412566/fast-delivery-courier-service.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.success_card {
+    border: 2px solid;
+}
+
+.success_details{
+    display: flex;
+    gap: 50px;
+}
+.success_key{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.success_values{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#card {
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#upper-side {
+    padding: 2em;
+    background-color: #8BC34A;
+    display: block;
+    color: #fff;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+#checkmark {
+    font-weight: lighter;
+    fill: #fff;
+    margin: -3.5em auto auto 76px;
+}
+
+#status {
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1em;
+    margin-top: -.2em;
+    margin-bottom: 0;
+}
+
+#lower-side {
+    padding: 2em 2em 5em 2em;
+    background: #a5e35c40;
+    display: block;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#message {
+    margin-top: -.5em;
+    color: #757575;
+    letter-spacing: 1px;
+}
+
+#contBtn {
+    /* position: relative;
+    top: 1.5em; */
+    text-decoration: none;
+    background: #8bc34a;
+    color: #fff;
+    /* margin: auto; */
+    padding: .8em 3em;
+    box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.21);
+    border-radius: 25px;
+}
+
+#contBtn:hover {
+    box-shadow: 0px 15px 30px rgba(50, 50, 50, 0.41);
+}
+
+/* Success Page CSS End */
+
+
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="booking_page_bg1">
+        <div class="header_profile">
+            <div class="header_content">
+                <h1>Welcome to Parcel Management System</h1>
+                <nav>
+                    <a href="/home.html">Home</a>
+                    <a href="booking.html">Booking service</a>
+                    <a href="tracking.html">Tracking</a>
+                    <a href="previous-booking.html">Previous Booking</a>
+                    <a href="contact.html">Contact Support</a>
+                    <a href="login.html">Logout</a>
+                </nav>
+            </div>
+            <div class="profile_photo">
+                <div class="profile_circle"></div>
+                <div class="profile_name" id="profile_name"></div>
+            </div>
+        </div>
+        
+        <main>
+            <h2>Dashboard</h2>
+            <p>Track your parcels, manage your bookings, and more.</p>
+        </main>
+    </div>
+
+    <script>
+        
+        const userName = localStorage.getItem('customerName') || 'Guest';
+
+        document.getElementById('profile_name').textContent = `Welcome ${userName}`;
+    </script>
+</body>
+</html>
